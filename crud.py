@@ -17,6 +17,18 @@ def create_reservation(date, time, user):
     db.session.add(reservation)
     db.session.commit()
     
+    
+def get_user_by_email(email):
+
+    user = User.query.filter_by(email=email).first()
+    return user
+
+
+def get_user_by_username(username):
+
+    user = User.query.filter_by(user_name=username).first()
+    return user
+
 
 if __name__=='__main':
     from server import app

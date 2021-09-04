@@ -20,7 +20,25 @@ def homepage():
 def login():
     """View login page. """
 
-    return render_template("login.html")
+    username_or_email = request.form.get('username_or_email')
+    password = request.form.get('password')
+
+    if '@' in username_or_email:
+        email = username_or_email
+        user = crud.get_user_by_email(email)
+    else:
+        user_name = username_or_email
+        user = crud.get_user_by_username(user_name)
+
+    if user.password == password:
+        flash(f"You are now logged in!")
+        return render_template("login.html")
+
+    else:
+        flash(f"Sorry! The password you entered is incorrect.")
+        return redirect('/')
+
+    
 
 
 if __name__=='__main__':
