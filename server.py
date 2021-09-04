@@ -80,6 +80,39 @@ def tasting_reservations():
     return render_template('all_reservations.html', reservation_slots=slots_list, date=chosen_date)
 
 
+@app.route('/book-reservation/<date>', methods=["POST"])
+def reserve_tasting(date):
+    """Book a reservation slot.  """
+
+    chosen_date = date
+    chosen_time = request.form.get('reservation_slots')
+    user_name = session['user']
+
+    user = crud.get_user_by_username(user_name)
+
+    user_reservation = crud.create_reservation(chosen_date, chosen_time, user)
+
+    if user_reservation:
+        flash(f"Your booking is confirmed")
+        return redirect('/user-reservations')
+
+    else:
+        flash(f'Oops! Something went wrong. Please try booking again.')
+        return redirect('/')
+
+
+@app.route('/user-reservations', methods=["GET","POST"])
+def user_reservations():
+    """View all user reservations. """
+    
+    user_name = session['user']
+    user = crud.get_user_by_username(user_name)
+
+    reservations = crud.get_all_user_reservations(user)
+
+    return render_template('user_reservations.html', reservations=reservations)
+
+    
 if __name__=='__main__':
     connect_to_db(app)
     app.run(host="0.0.0.0", debug=True)
