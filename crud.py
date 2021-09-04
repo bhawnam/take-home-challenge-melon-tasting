@@ -2,9 +2,9 @@
 
 from model import db, User, Reservations, connect_to_db
 
-def create_user(first_name, last_name, user_name, email, passsword):
+def create_user(first_name, last_name, user_name, email, password):
 
-    user = User(first_name= first_name, last_name= last_name, user_name= user_name, email= email, passsword= passsword)
+    user = User(first_name= first_name, last_name= last_name, user_name= user_name, email= email, password= password)
     db.session.add(user)
     db.session.commit()
 
