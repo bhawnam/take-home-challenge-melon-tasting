@@ -9,18 +9,22 @@
 
     <div> 
         <form action="/all_reservations" method="POST">
-            <p> Enter the date of the resservation you would like </p>    
+            <p> Enter the date of the reservation you would like </p>    
             <label> Date </label>
             <input type="date" name="date" min="2020-01-01" max="2025-01-01" required>
 
             <p> Enter an optional time range and we will only show appointments in that range. </p>   
-            <label> Time </label>
-            <input type="time" name="start_time" min="09:00" max="18:00" step="1800" required>
-            <small>Reservation slots are only 30 min long </small>
+            <label> Start Time </label>
+            <input type="time" name="start_time" min="09:00" max="18:00" >
+            <div>
+                <br/>
+            <label> End Time </label>
+            <input type="time" name="end_time" min="09:00" max="18:00">
+            </div>
             <br />
             <br />
             <div>
-            <button> Submit </button>
+            <button> Search </button>
             </div>
 
         </form>

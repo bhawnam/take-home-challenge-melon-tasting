@@ -30,6 +30,12 @@ def get_user_by_username(username):
     return user
 
 
+def look_for_reservation(date, user):
+
+    is_reservation = Reservations.query.filter((Reservations.reservation_date==date) & (Reservations.user==user)).first()
+    return is_reservation
+
+
 if __name__=='__main__':
     from server import app
     connect_to_db(app)

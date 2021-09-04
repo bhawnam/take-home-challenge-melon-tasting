@@ -29,8 +29,8 @@ class Reservations(db.Model):
     __tablename__ = "reservations"
 
     reservation_id = db.Column(db.Integer, autoincrement= True, primary_key= True)
-    reservation_date = db.Column(db.DateTime)
-    reservation_time = db.Column(db.DateTime)
+    reservation_date = db.Column(db.String)
+    reservation_time = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     is_cancelled = db.Column(db.Boolean, default= False)
 
