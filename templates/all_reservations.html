@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Melon Reservations {% endblock %}
+
+{% block body %}
+    <h1> Melon Tasting Reservation Scheduler </h1>
+    <p> Slots for your desired date {{date}} :</p>
+    <form action='/book-reservation/{{date}}' method="POST"></form>
+        <select name='reservation_slots'> Please book a slot:
+            <option selected="selected" disabled="disabled">Select an Available Slot to Book</option>    
+        {% for slot in reservation_slots %}
+            <option value={{slot}}> {{slot}} </option>      
+        {% endfor %}
+        </select>       
+    </form> 
+{% endblock %}
