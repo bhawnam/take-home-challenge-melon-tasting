@@ -17,7 +17,7 @@ def create_reservation(date, time, user):
     db.session.add(reservation)
     db.session.commit()
     
-    
+
 def get_user_by_email(email):
 
     user = User.query.filter_by(email=email).first()
@@ -30,6 +30,6 @@ def get_user_by_username(username):
     return user
 
 
-if __name__=='__main':
+if __name__=='__main__':
     from server import app
     connect_to_db(app)

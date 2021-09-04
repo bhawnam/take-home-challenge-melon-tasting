@@ -31,6 +31,7 @@ def login():
         user = crud.get_user_by_username(user_name)
 
     if user.password == password:
+        session['user'] = user.first_name
         flash(f"You are now logged in!")
         return render_template("login.html")
 
