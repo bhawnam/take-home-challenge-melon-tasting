@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Melon Reservations {% endblock %}
+
+{% block body %}
+    <h1> Melon Tasting Reservation Scheduler </h1>
+    <h2> Your scheduled reservations </h2>
+    <table>
+        <tr>
+          <th> Date </th>
+          <th> Time </th>
+        </tr>
+        {% for reservation in reservations %}
+        <tr>
+          <td> {{reservation.reservation_date}} </td>
+          <td> {{reservation.reservation_time}} </td>
+        </tr>
+        {% endfor %}
+      </table>
+{% endblock %}
