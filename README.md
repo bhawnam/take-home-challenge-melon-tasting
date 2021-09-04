@@ -3,7 +3,6 @@
 The idea of this app is to build a simple service to help users make reservations to go to a fancy melon tasting! 
 Enabling users to search for and book reservations.
 We offer coverage 24/7/365 (including weekends and holidays) and have unlimited appointments.
-
 <br> 
 Tasks:
 <br> 
@@ -21,7 +20,7 @@ a user can only have 1 reservation on a calendar date (#tooMuchMelon)
 If these conditions cannot be met (for example the user has already booked an appointment on the chosen date), show an error message indicating that.
 
 <br> 
-<br>
+
 ## Contents 
 * [Features Built](#features)
 * [Technologies & Stack](#techstack)
@@ -55,7 +54,7 @@ I added a seed_database file which makes use of Faker library to feed the databa
 <br>
 For the date and time logic to work while reserving slots, I leveraged Python's datetime library. 
 <br>
-Added some styling using CSS and added it in styles.css file.
+Added some styling using CSS and added it in styles.css file
 
 ## <a name="techstack"></a> Technologies and Stack
 **Backend:**
