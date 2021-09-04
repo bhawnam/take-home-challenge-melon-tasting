@@ -1,16 +1,18 @@
 # Melon Tasting Reservation Scheduler
 
-The idea of this app is tp build a simple service to help users make reservations to go to a fancy melon tasting! 
+The idea of this app is to build a simple service to help users make reservations to go to a fancy melon tasting! 
 Enabling users to search for and book reservations.
 We offer coverage 24/7/365 (including weekends and holidays) and have unlimited appointments.
 
 <br> 
 Tasks:
+<br> 
 1. A user should be able to “log in”, pick a date, choose an optional time range, and then be shown all the available reservations that meet the criteria.
 2. They can then book an appointment of their choice. If there are no reservations available, you should display a message indicating that.
 3. There should also be a page which shows all reservations for a given user.	
 
 Reservation Contraints:
+<br>
 all reservations must start and end on the hour or half hour
 all reservations are exactly 30 minutes long
 a user can only have 1 reservation on a calendar date (#tooMuchMelon)
@@ -23,18 +25,18 @@ If these conditions cannot be met (for example the user has already booked an ap
 * [Technologies & Stack](#techstack)
 * [Set-up & Installation](#installation)
 
-## <a name="features"></a> Features
+## <a name="features"></a> Features Built
 
-
-<br>
 <br>
 For Task 1,
+<br>
 On the homepage, I built a login form with the ability to take in username or their email address with the password to allow the users to see their profile page. The password is validated against the database field of that user's email or username. A flash message idicates their successful or unsuccessful login attemp.
 Once users are logged in, they are taken to the reservation scheduler page to pick a date of their choice. They can also choose a optional start and end time to serch for avialable options. (Times are validated to be chosen such that they start and end on the hour or half hour)
 After choosing the date and optional time range, users can Search for available slots. 
 <br>
 <br>
 For Task 2, 
+<br>
 Ater making the selection, their choice is matched against their reservations in the DB. If a reservation in found for the same date, users are prompted an error message (#TOOMUCHMELONS).
 If not, users are taken to all_reservations page and are shown (in a dropdown format) avaialable time slots in 30 min intervals of their desired date. They can choose a slot and book. 
 <br>
@@ -62,10 +64,13 @@ Install [postgreSQL](https://www.postgresql.org/) for the relational database.<b
 
 Clone or fork repository:
 ```
-$ git clone 
+$ git clone https://github.com/bhawnam/take-home-challenge-melon-tasting.git
 ```
 
 cd into the take-home-challenge folder
+```
+cd take-home-challenge
+```
 Create and activate a virtual environment
 ```
 $ virtualenv env
@@ -86,5 +91,5 @@ $ python3 seed_database.py
 
 In the project folder run, 
 ```
-python3 server.py
+$ python3 server.py
 ```
